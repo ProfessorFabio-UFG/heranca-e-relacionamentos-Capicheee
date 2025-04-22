@@ -2,13 +2,16 @@ package lab7;
 import java.util.Scanner;
 
 public class Loja {
+    public static Funcionario funcionario[];
+    public static Cliente cliente[];
+    public static Fornecedor fornecedor[];
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        Funcionario funcionario[] = new Funcionario[5];
-        Cliente cliente[] = new Cliente[7];
-        Fornecedor fornecedor[] = new Fornecedor[3];
         
+        funcionario = new Funcionario[10];
+        cliente = new Cliente[10];
+        fornecedor = new Fornecedor[10];
+
         int i = 10;
         int numFuncionarios = 0;
         int numClientes = 0;
@@ -20,28 +23,9 @@ public class Loja {
             switch(i){
                 case 1:
                     if(numFuncionarios < funcionario.length){
-                        System.out.println("Nome:");
-                        String nome = sc.nextLine();
-                        System.out.println("Endereço:");
-                        String endereco = sc.nextLine();
-                        System.out.println("Telefone:");
-                        String telefone = sc.nextLine();
-                        System.out.println("CPF:");
-                        String cpf = sc.nextLine();
-                        System.out.println("Sexo (M/F):");
-                        char sexo = sc.nextLine().charAt(0);
-                        System.out.println("Estado civil (1-Solteiro, 2-Casado, 3-Divorciado, 4-Viúvo):");
-                        int estadoCivil = Integer.parseInt(sc.nextLine());
-                        System.out.println("Matrícula:");
-                        int matricula = Integer.parseInt(sc.nextLine());
-                        System.out.println("Salário:");
-                        double salario = Double.parseDouble(sc.nextLine());
-                        System.out.println("Cargo:");
-                        String cargo = sc.nextLine();
-                        
-                        funcionario[numFuncionarios] = new Funcionario(matricula, salario, cargo, nome, endereco, telefone, cpf, sexo, estadoCivil);
+                        Funcionario f = new Funcionario(0, 0, "", "", "", "", "", ' ', 0);
+                        funcionario[numFuncionarios] = f.registraFuncionario();
                         numFuncionarios++;
-                        System.out.println("Funcionário cadastrado com sucesso!");
                     } else {
                         System.out.println("Limite de funcionários atingido!");
                     }
@@ -67,26 +51,8 @@ public class Loja {
 
                 case 3:
                     if(numClientes < cliente.length){
-                        System.out.println("Nome:");
-                        String nomeCliente = sc.nextLine();
-                        System.out.println("Endereço:");
-                        String enderecoCliente = sc.nextLine();
-                        System.out.println("Telefone:");
-                        String telefoneCliente = sc.nextLine();
-                        System.out.println("CPF:");
-                        String cpfCliente = sc.nextLine();
-                        System.out.println("Sexo (M/F):");
-                        char sexoCliente = sc.nextLine().charAt(0);
-                        System.out.println("Estado civil (1-Solteiro, 2-Casado, 3-Divorciado, 4-Viúvo):");
-                        int estadoCivilCliente = Integer.parseInt(sc.nextLine());
-                        System.out.println("Renda:");
-                        double renda = Double.parseDouble(sc.nextLine());
-                        System.out.println("Interesses:");
-                        String interesses = sc.nextLine();
-                        System.out.println("Profissão:");
-                        String profissao = sc.nextLine();
-                        
-                        cliente[numClientes] = new Cliente(renda, interesses, profissao, nomeCliente, enderecoCliente, telefoneCliente, cpfCliente, sexoCliente, estadoCivilCliente);
+                        Cliente c = new Cliente(0, "", "", "", "", "", "", ' ', 0);
+                        cliente[numClientes] = c.registraCliente();
                         numClientes++;
                     } else {
                         System.out.println("Cheio demais\n");
@@ -95,20 +61,8 @@ public class Loja {
 
                 case 4:
                     if(numFornecedores < fornecedor.length){
-                        System.out.println("Nome:");
-                        String nomeFornecedor = sc.nextLine();
-                        System.out.println("Endereço:");
-                        String enderecoFornecedor = sc.nextLine();
-                        System.out.println("Telefone:");
-                        String telefoneFornecedor = sc.nextLine();
-                        System.out.println("CNPJ:");
-                        String cnpj = sc.nextLine();
-                        System.out.println("Razão Social:");
-                        String razaoSocial = sc.nextLine();
-                        System.out.println("Produto:");
-                        String produto = sc.nextLine();
-                        
-                        fornecedor[numFornecedores] = new Fornecedor(produto, nomeFornecedor, enderecoFornecedor, telefoneFornecedor, cnpj, razaoSocial);
+                        Fornecedor g = new Fornecedor(null, null, null, null, null, null);
+                        fornecedor[numFornecedores] = g.registraFornecedor();
                         numFornecedores++;
                     } else {
                         System.out.println("Cheio demais.\n");

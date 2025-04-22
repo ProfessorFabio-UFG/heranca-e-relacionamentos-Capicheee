@@ -1,5 +1,7 @@
 package lab7;
 
+import java.util.Scanner;
+
 public class Fornecedor extends PJuridica{
     protected String produto;
 
@@ -18,5 +20,25 @@ public class Fornecedor extends PJuridica{
 
     public String toString(){
         return super.toString() + "Dados do fornecedor:\n" + produto + "\n";
+    }
+
+    public Fornecedor registraFornecedor(){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Nome:");
+        String nomeFornecedor = sc.nextLine();
+        System.out.println("Endereço:");
+        String enderecoFornecedor = sc.nextLine();
+        System.out.println("Telefone:");
+        String telefoneFornecedor = sc.nextLine();
+        System.out.println("CNPJ:");
+        String cnpj = sc.nextLine();
+        System.out.println("Razão Social:");
+        String razaoSocial = sc.nextLine();
+        System.out.println("Produto:");
+        String produto = sc.nextLine();
+        
+        return new Fornecedor(produto, nomeFornecedor, enderecoFornecedor, telefoneFornecedor, cnpj, razaoSocial);
     }
 }
